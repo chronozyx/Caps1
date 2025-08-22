@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from "../assets/logo.png";
 
 const PatientManagement = () => {
   const [patients, setPatients] = useState([
@@ -22,14 +23,20 @@ const PatientManagement = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-50 to-white min-h-screen">
-      <h2 className="text-3xl font-bold text-blue-900 mb-6 border-b pb-2 border-blue-300">
-        🏥 Patient Management
-      </h2>
+    <div className="p-6 bg-gradient-to-br from-green-50 to-white min-h-screen">
+      <div className="flex items-center gap-4 mb-6 border-b pb-2 border-green-300">
+        <img
+          src={logo}
+          alt="St. James Clinic Logo"
+          className="w-12 h-12 rounded-full border-2 border-green-300"
+        />
+        <h2 className="text-3xl font-bold text-green-900">
+          Patient Management
+        </h2>
+      </div>
 
-      {/* Encode New Patient */}
-      <div className="bg-white shadow-xl rounded-xl p-6 mb-8 border border-blue-100">
-        <h3 className="text-xl font-semibold text-blue-700 mb-4">
+      <div className="bg-white shadow-xl rounded-xl p-6 mb-8 border border-green-200">
+        <h3 className="text-xl font-semibold text-green-700 mb-4">
           ➕ Encode New Patient
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
@@ -38,7 +45,7 @@ const PatientManagement = () => {
             value={form.name}
             onChange={handleChange}
             placeholder="Full Name"
-            className="border border-blue-300 focus:ring-2 focus:ring-blue-200 p-2 rounded-lg"
+            className="border border-green-300 focus:ring-2 focus:ring-green-200 p-2 rounded-lg"
           />
           <input
             name="age"
@@ -46,13 +53,13 @@ const PatientManagement = () => {
             onChange={handleChange}
             placeholder="Age"
             type="number"
-            className="border border-blue-300 focus:ring-2 focus:ring-blue-200 p-2 rounded-lg"
+            className="border border-green-300 focus:ring-2 focus:ring-green-200 p-2 rounded-lg"
           />
           <select
             name="gender"
             value={form.gender}
             onChange={handleChange}
-            className="border border-blue-300 focus:ring-2 focus:ring-blue-200 p-2 rounded-lg"
+            className="border border-green-300 focus:ring-2 focus:ring-green-200 p-2 rounded-lg"
           >
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
@@ -63,26 +70,25 @@ const PatientManagement = () => {
             value={form.diagnosis}
             onChange={handleChange}
             placeholder="Diagnosis/Reason"
-            className="border border-blue-300 focus:ring-2 focus:ring-blue-200 p-2 rounded-lg"
+            className="border border-green-300 focus:ring-2 focus:ring-green-200 p-2 rounded-lg"
           />
         </div>
         <button
           onClick={handleAddPatient}
-          className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
+          className="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition"
         >
           Add Patient
         </button>
       </div>
 
-      {/* View Patients */}
-      <div className="bg-white shadow-lg rounded-xl p-6 border border-blue-100">
-        <h3 className="text-xl font-semibold text-blue-700 mb-4">
+      <div className="bg-white shadow-lg rounded-xl p-6 border border-green-200">
+        <h3 className="text-xl font-semibold text-green-700 mb-4">
           📋 Patient List
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full table-auto border border-gray-200 rounded">
             <thead>
-              <tr className="bg-blue-100 text-blue-800">
+              <tr className="bg-green-100 text-green-800">
                 <th className="p-3 text-left">ID</th>
                 <th className="p-3 text-left">Name</th>
                 <th className="p-3 text-left">Age</th>
@@ -94,7 +100,7 @@ const PatientManagement = () => {
               {patients.map((patient) => (
                 <tr
                   key={patient.id}
-                  className="border-t border-blue-100 hover:bg-blue-50"
+                  className="border-t border-green-100 hover:bg-green-50"
                 >
                   <td className="p-3">{patient.id}</td>
                   <td className="p-3">{patient.name}</td>
@@ -119,6 +125,3 @@ const PatientManagement = () => {
 };
 
 export default PatientManagement;
-
-
-

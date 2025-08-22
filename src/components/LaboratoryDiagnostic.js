@@ -2,43 +2,42 @@ import React from "react";
 
 export default function LaboratoryDiagnostic() {
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg mt-6 border border-blue-200">
-      <h2 className="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">
+    <div className="p-6 bg-white shadow-md rounded-lg mt-6 border border-green-200">
+      <h2 className="text-2xl font-bold text-green-800 mb-6 border-b pb-2">
         🧪 Laboratory Diagnostic
       </h2>
 
-      {/* Patient Info */}
-      <div className="bg-blue-50 border border-blue-200 p-4 rounded-md mb-6">
-        <h3 className="text-lg font-semibold text-blue-700 mb-4">
+      <div className="bg-green-50 border border-green-200 p-4 rounded-md mb-6">
+        <h3 className="text-lg font-semibold text-green-700 mb-4">
           👤 Patient Information
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <input
             type="text"
             placeholder="Surname"
-            className="border p-2 rounded w-full"
+            className="border border-green-300 p-2 rounded w-full"
           />
           <input
             type="text"
             placeholder="Middle Name"
-            className="border p-2 rounded w-full"
+            className="border border-green-300 p-2 rounded w-full"
           />
           <input
             type="text"
             placeholder="First Name"
-            className="border p-2 rounded w-full"
+            className="border border-green-300 p-2 rounded w-full"
           />
           <input
             type="date"
             placeholder="Date of Birth"
-            className="border p-2 rounded w-full"
+            className="border border-green-300 p-2 rounded w-full"
           />
           <input
             type="text"
             placeholder="Contact Number"
-            className="border p-2 rounded w-full"
+            className="border border-green-300 p-2 rounded w-full"
           />
-          <select className="border p-2 rounded w-full">
+          <select className="border border-green-300 p-2 rounded w-full">
             <option>Civil Status</option>
             <option>Single</option>
             <option>Married</option>
@@ -48,13 +47,13 @@ export default function LaboratoryDiagnostic() {
           <input
             type="text"
             placeholder="Address"
-            className="border p-2 rounded w-full col-span-1 md:col-span-3"
+            className="border border-green-300 p-2 rounded w-full col-span-1 md:col-span-3"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* CBC */}
+        {/* CBC Section */}
         <div className="bg-red-50 border border-red-300 p-4 rounded-md">
           <h3 className="text-lg font-semibold text-red-700 mb-3">
             🩸 Complete Blood Count
@@ -80,14 +79,14 @@ export default function LaboratoryDiagnostic() {
             <div key={label} className="mb-2">
               <label className="text-sm font-medium">{label}</label>
               <div className="flex items-center gap-2">
-                <input type="text" className="border rounded p-1 w-1/2" />
+                <input type="text" className="border border-green-300 rounded p-1 w-1/2" />
                 <span className="text-xs text-gray-500">{ref}</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Urinalysis */}
+        {/* Urinalysis Section */}
         <div className="bg-green-50 border border-green-300 p-4 rounded-md">
           <h3 className="text-lg font-semibold text-green-700 mb-3">
             💧 Urinalysis
@@ -105,7 +104,7 @@ export default function LaboratoryDiagnostic() {
           ].map(([label, options]) => (
             <div key={label} className="mb-2">
               <label className="text-sm font-medium">{label}</label>
-              <select className="border rounded p-1 w-full">
+              <select className="border border-green-300 rounded p-1 w-full">
                 {options.map((opt) => (
                   <option key={opt}>{opt}</option>
                 ))}
@@ -123,12 +122,12 @@ export default function LaboratoryDiagnostic() {
           ].map((field) => (
             <div key={field} className="mb-2">
               <label className="text-sm font-medium">{field}</label>
-              <input type="text" className="border rounded p-1 w-full" />
+              <input type="text" className="border border-green-300 rounded p-1 w-full" />
             </div>
           ))}
         </div>
 
-        {/* Fecalysis */}
+        {/* Fecalysis and Ancillary Tests */}
         <div>
           <div className="bg-purple-50 border border-purple-300 p-4 rounded-md mb-4">
             <h3 className="text-lg font-semibold text-purple-700 mb-3">
@@ -136,19 +135,18 @@ export default function LaboratoryDiagnostic() {
             </h3>
             <div className="mb-3">
               <label className="text-sm font-medium">Color/Consistency:</label>
-              <input type="text" className="border p-1 rounded w-full" />
+              <input type="text" className="border border-green-300 p-1 rounded w-full" />
             </div>
             <div className="mb-3">
               <label className="text-sm font-medium">Parasites:</label>
               <input
                 type="text"
-                className="border p-1 rounded w-full"
+                className="border border-green-300 p-1 rounded w-full"
                 placeholder="Type here or select"
               />
             </div>
           </div>
 
-          {/* Ancillary */}
           <div className="bg-yellow-50 border border-yellow-300 p-4 rounded-md">
             <h3 className="text-lg font-semibold text-yellow-700 mb-3">
               🧾 Ancillary Tests
@@ -161,7 +159,7 @@ export default function LaboratoryDiagnostic() {
               ].map(([label, options]) => (
                 <div key={label} className="mb-2">
                   <label className="text-sm font-medium">{label}</label>
-                  <select className="border rounded p-1 w-full">
+                  <select className="border border-green-300 rounded p-1 w-full">
                     {options.map((opt) => (
                       <option key={opt}>{opt}</option>
                     ))}
@@ -180,7 +178,7 @@ export default function LaboratoryDiagnostic() {
               ].map((field) => (
                 <div key={field}>
                   <label className="text-sm font-medium">{field}:</label>
-                  <input type="text" className="border rounded p-1 w-full" />
+                  <input type="text" className="border border-green-300 rounded p-1 w-full" />
                 </div>
               ))}
             </div>
@@ -188,9 +186,8 @@ export default function LaboratoryDiagnostic() {
         </div>
       </div>
 
-      {/* Generate Result Button */}
       <div className="mt-8 text-center">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+        <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
           Generate Result
         </button>
       </div>

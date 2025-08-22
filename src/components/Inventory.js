@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import logo from "../assets/logo.png";
 
 export default function Inventory() {
   const [tab, setTab] = useState("manage");
@@ -48,10 +49,17 @@ export default function Inventory() {
   };
 
   return (
-    <div className="mt-8 p-6 bg-white rounded-xl shadow-md border border-gray-300">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-yellow-800">Clinic Inventory Management</h2>
-        <button className="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">Export as PDF</button>
+    <div className="mt-8 p-6 bg-white rounded-xl shadow-md border border-green-200">
+      <div className="flex items-center gap-4 mb-4">
+        <img
+          src={logo}
+          alt="St. James Clinic Logo"
+          className="w-12 h-12 rounded-full border-2 border-green-300"
+        />
+        <div>
+          <h2 className="text-2xl font-bold text-green-800">Inventory Management</h2>
+          <p className="text-sm text-green-600">St. James Clinic</p>
+        </div>
       </div>
 
       {lowStockAlerts.length > 0 && (
@@ -63,19 +71,19 @@ export default function Inventory() {
       <div className="flex space-x-2 mb-4">
         <button
           onClick={() => setTab("manage")}
-          className={`px-4 py-2 rounded font-semibold ${tab === "manage" ? "bg-yellow-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+          className={`px-4 py-2 rounded font-semibold ${tab === "manage" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
         >
           Manage Clinic Supplies
         </button>
         <button
           onClick={() => setTab("used")}
-          className={`px-4 py-2 rounded font-semibold ${tab === "used" ? "bg-yellow-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+          className={`px-4 py-2 rounded font-semibold ${tab === "used" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
         >
           Used / Rejected Report
         </button>
         <button
           onClick={() => setTab("inout")}
-          className={`px-4 py-2 rounded font-semibold ${tab === "inout" ? "bg-yellow-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+          className={`px-4 py-2 rounded font-semibold ${tab === "inout" ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
         >
           In / Out Report
         </button>
@@ -89,25 +97,25 @@ export default function Inventory() {
               placeholder="Supply Name"
               value={newSupply.name}
               onChange={(e) => setNewSupply({ ...newSupply, name: e.target.value })}
-              className="border px-2 py-1 mr-2"
+              className="border border-green-300 px-2 py-1 mr-2"
             />
             <input
               type="number"
               placeholder="Initial Stock"
               value={newSupply.stock}
               onChange={(e) => setNewSupply({ ...newSupply, stock: parseInt(e.target.value) || 0 })}
-              className="border px-2 py-1 mr-2"
+              className="border border-green-300 px-2 py-1 mr-2"
             />
             <button
               onClick={handleAddSupply}
-              className="bg-yellow-600 text-white px-4 py-1 rounded"
+              className="bg-green-600 text-white px-4 py-1 rounded"
             >
               Add Supply
             </button>
           </div>
 
-          <table className="min-w-full text-sm text-left border border-collapse border-gray-300">
-            <thead className="bg-yellow-100 text-yellow-800">
+          <table className="min-w-full text-sm text-left border border-collapse border-green-300">
+            <thead className="bg-green-100 text-green-800">
               <tr>
                 <th className="border px-4 py-2">Supply Name</th>
                 <th className="border px-4 py-2">Initial Stock</th>
@@ -116,14 +124,14 @@ export default function Inventory() {
             </thead>
             <tbody>
               {supplies.map((item, i) => (
-                <tr key={i} className="odd:bg-white even:bg-yellow-50">
+                <tr key={i} className="odd:bg-white even:bg-green-50">
                   <td className="border px-4 py-2">{item.name}</td>
                   <td className="border px-4 py-2">
                     <input
                       type="number"
                       value={item.total}
                       onChange={(e) => handleEditInitialStock(i, e.target.value)}
-                      className="w-20 px-1 border"
+                      className="w-20 px-1 border border-green-300"
                     />
                   </td>
                   <td className="border px-4 py-2">
@@ -143,8 +151,8 @@ export default function Inventory() {
 
       {tab === "used" && (
         <div>
-          <table className="min-w-full text-sm text-left border border-collapse border-gray-300">
-            <thead className="bg-yellow-100 text-yellow-800">
+          <table className="min-w-full text-sm text-left border border-collapse border-green-300">
+            <thead className="bg-green-100 text-green-800">
               <tr>
                 <th className="border px-4 py-2">Supply Name</th>
                 <th className="border px-4 py-2">Used</th>
@@ -153,14 +161,14 @@ export default function Inventory() {
             </thead>
             <tbody>
               {supplies.map((item, i) => (
-                <tr key={i} className="odd:bg-white even:bg-yellow-50">
+                <tr key={i} className="odd:bg-white even:bg-green-50">
                   <td className="border px-4 py-2">{item.name}</td>
                   <td className="border px-4 py-2">
                     <input
                       type="number"
                       value={item.used}
                       onChange={(e) => handleEditUsedRejected(i, "used", e.target.value)}
-                      className="w-20 px-1 border"
+                      className="w-20 px-1 border border-green-300"
                     />
                   </td>
                   <td className="border px-4 py-2">
@@ -168,7 +176,7 @@ export default function Inventory() {
                       type="number"
                       value={item.rejected}
                       onChange={(e) => handleEditUsedRejected(i, "rejected", e.target.value)}
-                      className="w-20 px-1 border"
+                      className="w-20 px-1 border border-green-300"
                     />
                   </td>
                 </tr>
@@ -180,8 +188,8 @@ export default function Inventory() {
 
       {tab === "inout" && (
         <div>
-          <table className="min-w-full text-sm text-left border border-collapse border-gray-300">
-            <thead className="bg-yellow-100 text-yellow-800">
+          <table className="min-w-full text-sm text-left border border-collapse border-green-300">
+            <thead className="bg-green-100 text-green-800">
               <tr>
                 <th className="border px-4 py-2">Supply Name</th>
                 <th className="border px-4 py-2">Initial Stock</th>
@@ -191,7 +199,7 @@ export default function Inventory() {
             </thead>
             <tbody>
               {supplies.map((item, i) => (
-                <tr key={i} className="odd:bg-white even:bg-yellow-50">
+                <tr key={i} className="odd:bg-white even:bg-green-50">
                   <td className="border px-4 py-2">{item.name}</td>
                   <td className="border px-4 py-2">{item.total}</td>
                   <td className="border px-4 py-2">{item.used + item.rejected}</td>

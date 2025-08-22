@@ -9,18 +9,19 @@ export default function AdminInventoryReports() {
   ];
 
   return (
-    <div className="bg-white shadow-xl p-6 rounded-2xl border border-gray-200">
+    <div>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
+        <h2 className="flex items-center gap-2 text-xl font-bold text-green-800">
           <FaBoxes /> Inventory Reports
         </h2>
-        <button className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-full shadow">
+        <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow">
           <FaFilePdf /> Export as PDF
         </button>
       </div>
+
       <div className="overflow-x-auto">
-        <table className="w-full border border-gray-300 rounded-lg overflow-hidden">
-          <thead className="bg-gradient-to-r from-blue-100 to-blue-200">
+        <table className="w-full border border-green-300 rounded-lg overflow-hidden">
+          <thead className="bg-green-100 text-green-800">
             <tr>
               <th className="border p-3 text-left">Stock ID</th>
               <th className="border p-3 text-left">Item</th>
@@ -31,7 +32,7 @@ export default function AdminInventoryReports() {
           </thead>
           <tbody>
             {data.map((row, i) => (
-              <tr key={i} className="hover:bg-blue-50 transition-colors duration-200">
+              <tr key={i} className="hover:bg-green-50 transition-colors duration-200">
                 {row.map((cell, j) => (
                   <td key={j} className="border p-3">{cell}</td>
                 ))}
